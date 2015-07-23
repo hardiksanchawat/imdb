@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">		
+<h3>Movie Information</h3>
+{% if request.user.is_authenticated %}
+	<table style="width:100%">
+  		<tr>
+    		<th>Movie Name</th>
+    		<th>Director</th> 
+    		<th>Score</th>
+    		<th>Popularity</th>
+    		<th>Genre</th>
+  		</tr>
+  		{% for m in movies %}
+  		<tr>
+    		<td>{{ m.name }}</td>
+    		<td>{{ m.director }}</td> 
+    		<td>{{ m.imdb_score }}</td>
+    		<td>{{ m.popularity }}</td>
+    		<td>{{ m.genre }}</td>
+  		</tr>
+  		{% endfor %}
+	</table>
+{% else %}
+	<p>Login to the site .. to see movies information </p>
+{% endif %}
+</div>
+{% endblock %}

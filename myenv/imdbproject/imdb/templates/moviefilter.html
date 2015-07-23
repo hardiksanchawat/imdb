@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        Movie Name: <input type="text" name="name">
+        Director: <input type="text" name="director">
+        <input type="submit" value="Search"/><br/><br/>
+        <table style="width:100%">
+        	<tr>
+        		<th>Movie Name</th>
+    			<th>Director</th> 
+    			<th>Genre</th>
+    		<tr>
+
+        	{% for m in filters %}
+        	<tr>
+        		<td>{{ m.name }}</td>
+    			<td>{{ m.director }}</td>
+    			<td>{{ m.genre }}</td>
+        	</tr>
+    		{% endfor %}
+    	</table>
+    </form>
+
+{% endblock %}
